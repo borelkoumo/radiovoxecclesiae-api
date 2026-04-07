@@ -21,7 +21,6 @@ export async function listPrayers(query: ListPrayersQuery): Promise<PrayerListRe
   const db = getFirestore();
   let ref = db
     .collection(COLLECTION)
-    .where("status", "==", "approved")
     .orderBy("createdAt", "desc")
     .limit(query.limit + 1); // fetch one extra to detect next page
 
