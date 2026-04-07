@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: rve-api
+    runtime: node
+    region: frankfurt  # closest to Cameroon (WAT = UTC+1)
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: CORS_ORIGIN
+        # Add your Expo web domain here (comma-separated)
+        # Example: https://rve.yourapp.com,http://localhost:8081
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
