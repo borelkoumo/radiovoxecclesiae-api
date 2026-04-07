@@ -120,6 +120,40 @@ function loadDaySchedule(file: string, day: string, dayIndex: number) {
   };
 }
 
+// ── Prayers seed data (from SAMPLE_PRAYERS in prayers.tsx) ───────────────────
+
+/**
+ * Returns a random Firestore Timestamp within the last `maxDaysAgo` days.
+ */
+function randomTimestampInLastDays(maxDaysAgo: number): admin.firestore.Timestamp {
+  const now = Date.now();
+  const msAgo = Math.floor(Math.random() * maxDaysAgo * 24 * 60 * 60 * 1000);
+  return admin.firestore.Timestamp.fromMillis(now - msAgo);
+}
+
+const PRAYERS_SEED = [
+  {
+    text: "Seigneur, nous te confions tous les malades et les personnes en souffrance. Que ta main de guérison les touche et leur apporte réconfort et paix.",
+    author: "Marie-Claire",
+    isAnonymous: false,
+  },
+  {
+    text: "Père éternel, entre tes mains je remets ma vie. Que la Vierge Marie, patronne de notre diocèse, nous couvre de son manteau maternel.",
+    author: "Jean-Pierre",
+    isAnonymous: false,
+  },
+  {
+    text: "Seigneur Jésus miséricordieux, viens au secours de notre pays le Cameroun, bénis nos familles et guide nos pas sur le chemin de la paix.",
+    author: "François",
+    isAnonymous: false,
+  },
+  {
+    text: "Merci Seigneur pour toutes les grâces reçues. Je te confie cette nouvelle année avec tout ce qu'elle comportera. Que ta volonté se réalise. Amen.",
+    author: "Anonyme",
+    isAnonymous: true,
+  },
+];
+
 // ── Seed ──────────────────────────────────────────────────────────────────────
 
 async function seed(): Promise<void> {
@@ -140,6 +174,24 @@ async function seed(): Promise<void> {
       console.log(`✅ schedules/${day} written (${data.items.length} items)`);
     })
   );
+
+  // 3. Prayers — skip if collection already has documents
+  const existingSnap = await db.collection("prayers").limit(1).get();
+  if (!existingSnap.empty) {
+    console.log("ℹ️  prayers collection already has data — skipping seed");
+  } else {
+    await Promise.all(
+      PRAYERS_SEED.map(async (prayer) => {
+        const docData = {
+          ...prayer,
+          createdAt: randomTimestampInLastDays(7),
+          status: "approved",
+        };
+        const ref = await db.collection("prayers").add(docData);
+        console.log(`✅ prayers/${ref.id} written (${prayer.author})`);
+      })
+    );
+  }
 
   console.log("\n🎉 Seed complete.");
   process.exit(0);
