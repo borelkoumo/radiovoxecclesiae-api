@@ -6,6 +6,9 @@ const envSchema = z.object({
     .default("development"),
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),
   CORS_ORIGIN: z.string().default("*"),
+  // Rate limits (requests per minute per IP)
+  RATE_LIMIT_GENERAL: z.coerce.number().int().min(1).default(60),
+  RATE_LIMIT_PRAYER_WRITE: z.coerce.number().int().min(1).default(20),
   FIREBASE_PROJECT_ID: z.string().min(1),
   FIREBASE_CLIENT_EMAIL: z.string().email(),
   // Render stores private keys with literal \n — replace before use
