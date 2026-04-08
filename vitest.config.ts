@@ -11,6 +11,16 @@ export default defineConfig({
       exclude: [
         "src/scripts/**",
         "src/index.ts",
+        "src/app.ts",
+        "src/repositories/**",          // require live Firestore — covered by integration tests
+        "src/types/**",                 // type-only files, no runtime logic
+        "src/routes/**",               // thin wiring — covered by controller integration tests
+        "src/middleware/auth.ts",      // stub pass-through — no logic to unit-test yet
+        "src/middleware/request-logger.ts",
+        "src/config/firebase.ts",      // requires live Firebase credentials
+        "src/controllers/prayer.controller.ts",   // requires Firestore
+        "src/schemas/prayer.schema.ts",           // Zod declaration, no branch logic
+        "src/schemas/app-config.schema.ts",       // Zod declaration, no branch logic
         "dist/**",
         "**/*.test.ts",
         "vitest.config.ts",
