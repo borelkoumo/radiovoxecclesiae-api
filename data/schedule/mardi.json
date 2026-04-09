@@ -1,0 +1,581 @@
+{
+  "day": "mardi",
+  "schedule": [
+    {
+      "time": "05:30",
+      "endTime": "05:35",
+      "code": "RVE0",
+      "title": "Indicatif RVE",
+      "theme": null,
+      "icon": "radio-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:35",
+      "endTime": "05:45",
+      "code": "RVE1",
+      "title": "Ma prière du matin",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:45",
+      "endTime": "05:50",
+      "code": "RVE2",
+      "title": "Les saints nous parlent",
+      "theme": null,
+      "icon": "star-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:50",
+      "endTime": "05:53",
+      "code": "RVE4",
+      "title": "La minute de l'EDAP",
+      "theme": null,
+      "icon": "hand-left-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:53",
+      "endTime": "06:13",
+      "code": "RVE3",
+      "title": "Les Laudes",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "06:15",
+      "endTime": "07:00",
+      "code": null,
+      "title": "La messe en DIRECT d'une paroisse",
+      "theme": "Direct",
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:00",
+      "endTime": "07:10",
+      "code": null,
+      "title": "Le journal de la CRTV",
+      "theme": null,
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:10",
+      "endTime": "07:15",
+      "code": null,
+      "title": "Le Psy vous reveille",
+      "theme": null,
+      "icon": "bulb-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:15",
+      "endTime": "07:25",
+      "code": "RVE9",
+      "title": "Le pain du jour",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:25",
+      "endTime": "07:30",
+      "code": "RVE42",
+      "title": "Groupe Parole de Dieu",
+      "theme": null,
+      "icon": "people-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:30",
+      "endTime": "07:40",
+      "code": "RVE1",
+      "title": "Ma prière du matin",
+      "theme": "Rediffusion",
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:40",
+      "endTime": "07:55",
+      "code": "RVE5",
+      "title": "Parole de l'Evêque",
+      "theme": null,
+      "icon": "mic-outline",
+      "artwork": null
+    },
+    {
+      "time": "07:55",
+      "endTime": "08:00",
+      "code": "RVE30",
+      "title": "La minute de la famille",
+      "theme": null,
+      "icon": "home-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:00",
+      "endTime": "08:20",
+      "code": "RVE6",
+      "title": "RVE Infos matin",
+      "theme": "Direct",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:20",
+      "endTime": "08:00",
+      "code": null,
+      "title": "Musiques",
+      "theme": null,
+      "icon": "musical-notes-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:30",
+      "endTime": "08:45",
+      "code": "COFRAC1",
+      "title": "Le journal de Radio Vatican",
+      "theme": "Direct ou Redif du journal de 7H30",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:45",
+      "endTime": "08:55",
+      "code": "RVE9",
+      "title": "Le Pain du Jour",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:55",
+      "endTime": "09:00",
+      "code": "RVE2",
+      "title": "Les saints nous parlent",
+      "theme": null,
+      "icon": "star-outline",
+      "artwork": null
+    },
+    {
+      "time": "09:00",
+      "endTime": "10:00",
+      "code": "RVE8",
+      "title": "Le temps du partage",
+      "theme": "Direct",
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:00",
+      "endTime": "10:04",
+      "code": "RND1",
+      "title": "Le Flash infos",
+      "theme": null,
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:17",
+      "endTime": "10:27",
+      "code": "RND2",
+      "title": "Rencontre",
+      "theme": null,
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:27",
+      "endTime": "10:35",
+      "code": "RND3",
+      "title": "Oxygène",
+      "theme": null,
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:35",
+      "endTime": "10:50",
+      "code": "RND4",
+      "title": "Le Grand Témoin",
+      "theme": null,
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:50",
+      "endTime": "11:00",
+      "code": "RND5",
+      "title": "Planisphère",
+      "theme": null,
+      "icon": "globe-outline",
+      "artwork": null
+    },
+    {
+      "time": "11:00",
+      "endTime": "11:03",
+      "code": "RND6",
+      "title": "Le Flash infos",
+      "theme": null,
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "11:03",
+      "endTime": "11:30",
+      "code": "RND7",
+      "title": "Culture Club",
+      "theme": null,
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "11:30",
+      "endTime": "11:35",
+      "code": "RND1",
+      "title": "Tribune libre",
+      "theme": null,
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "11:35",
+      "endTime": "12:00",
+      "code": "RND8",
+      "title": "Retour sur la Matinée",
+      "theme": null,
+      "icon": "chatbubbles-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:00",
+      "endTime": "12:03",
+      "code": "RVE12",
+      "title": "L'Angélus",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:03",
+      "endTime": "12:05",
+      "code": "RVE64",
+      "title": "Intention de prière du Pape François",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:03",
+      "endTime": "12:05",
+      "code": "RVE64",
+      "title": "Intention de prière du Pape François",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:05",
+      "endTime": "12:10",
+      "code": "RVE53",
+      "title": "Flash Info",
+      "theme": null,
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:10",
+      "endTime": "12:40",
+      "code": "RVE7",
+      "title": "L'Invité du Jour",
+      "theme": null,
+      "icon": "mic-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:40",
+      "endTime": "12:45",
+      "code": "RVE91",
+      "title": "La minute de la vocation",
+      "theme": null,
+      "icon": "hand-left-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:45",
+      "endTime": "12:50",
+      "code": "RVE2",
+      "title": "Les saints nous parlent",
+      "theme": null,
+      "icon": "star-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:50",
+      "endTime": "12:55",
+      "code": "RVE4",
+      "title": "La minute de l'EDAP",
+      "theme": null,
+      "icon": "hand-left-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:55",
+      "endTime": "13:00",
+      "code": "RVE42",
+      "title": "Groupe Parole de Dieu",
+      "theme": null,
+      "icon": "people-outline",
+      "artwork": null
+    },
+    {
+      "time": "13:00",
+      "endTime": "13:30",
+      "code": null,
+      "title": "Le Journal de la CRTV",
+      "theme": "Direct",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "13:30",
+      "endTime": "13:45",
+      "code": "RVE9",
+      "title": "Le pain du Jour",
+      "theme": "Rediffusion",
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "13:45",
+      "endTime": "14:00",
+      "code": "COFRAC2",
+      "title": "Foi et psychologie",
+      "theme": "Rediffusion",
+      "icon": "bulb-outline",
+      "artwork": null
+    },
+    {
+      "time": "14:00",
+      "endTime": "14:30",
+      "code": "RVE14",
+      "title": "Catéchèse en Français",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "14:30",
+      "endTime": "15:00",
+      "code": "RVE14",
+      "title": "Catéchèse en Baleng",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "15:00",
+      "endTime": "15:30",
+      "code": null,
+      "title": "Le Journal de la CRTV en Anglais",
+      "theme": "Direct",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "15:30",
+      "endTime": "15:45",
+      "code": "RVE15",
+      "title": "Le chapelet de la Divine Miséricorde",
+      "theme": null,
+      "icon": "flower-outline",
+      "artwork": null
+    },
+    {
+      "time": "15:45",
+      "endTime": "16:15",
+      "code": "RVE15",
+      "title": "Le chapelet",
+      "theme": "Mystères Joyeux",
+      "icon": "flower-outline",
+      "artwork": null
+    },
+    {
+      "time": "16:15",
+      "endTime": "16:28",
+      "code": "RVE88",
+      "title": "Communiqués",
+      "theme": null,
+      "icon": "megaphone-outline",
+      "artwork": null
+    },
+    {
+      "time": "16:28",
+      "endTime": "16:30",
+      "code": "RVE30",
+      "title": "La minute de la famille",
+      "theme": null,
+      "icon": "home-outline",
+      "artwork": null
+    },
+    {
+      "time": "16:30",
+      "endTime": "16:45",
+      "code": "RVE6",
+      "title": "RVE Infos soir",
+      "theme": null,
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "16:45",
+      "endTime": "17:00",
+      "code": null,
+      "title": "Communiqués/Musiques",
+      "theme": null,
+      "icon": "megaphone-outline",
+      "artwork": null
+    },
+    {
+      "time": "17:00",
+      "endTime": "18:00",
+      "code": null,
+      "title": "Journal CRTV en Français",
+      "theme": "Direct",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "18:00",
+      "endTime": "18:30",
+      "code": null,
+      "title": "Messe en direct",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "18:30",
+      "endTime": "19:00",
+      "code": "RVE7",
+      "title": "L'Invité du Jour",
+      "theme": null,
+      "icon": "mic-outline",
+      "artwork": null
+    },
+    {
+      "time": "19:00",
+      "endTime": "19:15",
+      "code": "RVE6",
+      "title": "RVE Infos soir",
+      "theme": "Rediffusion",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "19:15",
+      "endTime": "19:30",
+      "code": null,
+      "title": "Communiqués/Musiques",
+      "theme": null,
+      "icon": "megaphone-outline",
+      "artwork": null
+    },
+    {
+      "time": "19:30",
+      "endTime": "20:00",
+      "code": "RVE19",
+      "title": "Famille en marche",
+      "theme": null,
+      "icon": "home-outline",
+      "artwork": null
+    },
+    {
+      "time": "20:00",
+      "endTime": "20:30",
+      "code": null,
+      "title": "Journal en Français CRTV",
+      "theme": "Direct",
+      "icon": "newspaper-outline",
+      "artwork": null
+    },
+    {
+      "time": "20:30",
+      "endTime": "21:00",
+      "code": null,
+      "title": "Morceau choisi",
+      "theme": null,
+      "icon": "musical-notes-outline",
+      "artwork": null
+    },
+    {
+      "time": "21:00",
+      "endTime": "21:30",
+      "code": "RVE14",
+      "title": "Catéchèse en Français",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "21:30",
+      "endTime": "22:00",
+      "code": null,
+      "title": "Misericordieux comme le Père",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:00",
+      "endTime": "22:05",
+      "code": null,
+      "title": "Spots",
+      "theme": null,
+      "icon": "megaphone-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:05",
+      "endTime": "22:10",
+      "code": "RVE64",
+      "title": "Intention de prière du Pape François",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:10",
+      "endTime": "22:50",
+      "code": null,
+      "title": "Enseignement de l'Eglise",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:50",
+      "endTime": "22:58",
+      "code": "RVE72",
+      "title": "Complies",
+      "theme": null,
+      "icon": "moon-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:58",
+      "endTime": "23:00",
+      "code": "RVE0",
+      "title": "Indicatif de station -FIN de programme",
+      "theme": null,
+      "icon": "radio-outline",
+      "artwork": null
+    }
+  ]
+}

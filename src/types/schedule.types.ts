@@ -5,6 +5,8 @@ export interface ScheduleItem {
   title: string;
   icon: string;
   theme: string | null;
+  /** URL of the program artwork image. Null when no artwork is configured. */
+  artwork: string | null;
 }
 
 export interface DaySchedule {

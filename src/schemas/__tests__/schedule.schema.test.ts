@@ -13,6 +13,7 @@ const validItem = {
   title: "Indicatif RVE",
   icon: "radio-outline",
   theme: null,
+  artwork: null,
 };
 
 const validDay = {
@@ -35,6 +36,33 @@ describe("scheduleItemSchema", () => {
   it("accepts null theme", () => {
     const result = scheduleItemSchema.safeParse({ ...validItem, theme: null });
     expect(result.success).toBe(true);
+  });
+
+  it("accepts a valid artwork URL", () => {
+    const result = scheduleItemSchema.safeParse({
+      ...validItem,
+      artwork: "https://example.com/artwork.png",
+    });
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.artwork).toBe("https://example.com/artwork.png");
+  });
+
+  it("accepts null artwork", () => {
+    const result = scheduleItemSchema.safeParse({ ...validItem, artwork: null });
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.artwork).toBeNull();
+  });
+
+  it("defaults artwork to null when field is absent (legacy Firestore docs)", () => {
+    const { artwork: _, ...itemWithoutArtwork } = validItem;
+    const result = scheduleItemSchema.safeParse(itemWithoutArtwork);
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.artwork).toBeNull();
+  });
+
+  it("rejects artwork that is not a valid URL", () => {
+    const result = scheduleItemSchema.safeParse({ ...validItem, artwork: "not-a-url" });
+    expect(result.success).toBe(false);
   });
 
   it("rejects invalid time format", () => {

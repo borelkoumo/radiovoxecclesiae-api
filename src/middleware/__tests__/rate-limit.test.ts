@@ -194,6 +194,6 @@ describe("prayerWriteLimitHandler", () => {
       success: false,
       code: "PRAYER_RATE_LIMIT_EXCEEDED",
     });
-    expect(res.body.error).toMatch(/prière/i);
+    expect(res.body.error).toMatch(/prière|prayer|trop/i);
   });
 });

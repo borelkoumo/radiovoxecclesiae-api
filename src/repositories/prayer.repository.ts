@@ -1,19 +1,32 @@
+import { z } from "zod";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
 import { getFirestore } from "../config/firebase.js";
 import type { Prayer, PrayerListResult } from "../types/prayer.types.js";
 import type { CreatePrayerInput, ListPrayersQuery } from "../schemas/prayer.schema.js";
+import { AppError } from "../utils/app-error.js";
 
 const COLLECTION = "prayers";
 
+const prayerDocSchema = z.object({
+  text: z.string().min(1),
+  author: z.string().min(1),
+  isAnonymous: z.boolean(),
+  createdAt: z.instanceof(Timestamp),
+  status: z.enum(["approved", "pending", "rejected"]).default("approved"),
+});
+
 function docToPrayer(id: string, data: FirebaseFirestore.DocumentData): Prayer {
-  const createdAt: Timestamp = data["createdAt"];
+  const result = prayerDocSchema.safeParse(data);
+  if (!result.success) {
+    throw AppError.internal(`Prayer ${id} has invalid shape`, "PRAYER_INVALID");
+  }
   return {
     id,
-    text: data["text"] as string,
-    author: data["author"] as string,
-    isAnonymous: data["isAnonymous"] as boolean,
-    createdAt: createdAt.toDate().toISOString(),
-    status: "approved",
+    text: result.data.text,
+    author: result.data.author,
+    isAnonymous: result.data.isAnonymous,
+    createdAt: result.data.createdAt.toDate().toISOString(),
+    status: result.data.status,
   };
 }
 

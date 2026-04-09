@@ -12,6 +12,8 @@ REST API backend for the [RadioVox Ecclesiae](https://radiovoxecclesiae.kodekonn
 |--------|------|-------------|
 | `GET` | `/api/v1/health` | Health check |
 | `GET` | `/api/v1/app-config` | Station config + full weekly schedule (single request) |
+| `GET` | `/api/v1/prayers` | List approved prayers (cursor pagination) |
+| `POST` | `/api/v1/prayers` | Submit a new prayer |
 
 ### Response envelope
 
@@ -53,6 +55,72 @@ Returns everything the app needs at startup in one request:
 }
 ```
 
+Each schedule item has the shape:
+
+```json
+{
+  "time": "08:00",
+  "endTime": "08:20",
+  "code": "RVE6",
+  "title": "RVE Infos matin",
+  "theme": "Direct",
+  "icon": "newspaper-outline",
+  "artwork": null
+}
+```
+
+`artwork` is a URL string when an image is configured, `null` otherwise.
+
+### `GET /api/v1/prayers`
+
+Query parameters:
+
+| Param | Type | Default | Description |
+|-------|------|---------|-------------|
+| `limit` | integer (1–100) | `20` | Number of prayers to return |
+| `cursor` | string | — | Pagination cursor from previous response |
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": "abc123",
+        "text": "Seigneur, nous te confions...",
+        "author": "Marie-Claire",
+        "isAnonymous": false,
+        "createdAt": "2026-04-07T10:00:00.000Z",
+        "status": "approved"
+      }
+    ],
+    "nextCursor": "abc123"
+  }
+}
+```
+
+### `POST /api/v1/prayers`
+
+Rate limited to 20 requests/minute per IP.
+
+Request body:
+
+```json
+{
+  "text": "Seigneur, bénis notre famille. Amen.",
+  "author": "Jean-Pierre",
+  "isAnonymous": false
+}
+```
+
+| Field | Type | Required | Constraints |
+|-------|------|----------|-------------|
+| `text` | string | yes | 1–500 characters |
+| `author` | string | no | max 100 characters |
+| `isAnonymous` | boolean | no | defaults to `false` |
+
 ---
 
 ## Local setup
@@ -69,7 +137,7 @@ npm install
 
 ```bash
 cp .env.example .env
-# Fill in FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY
+# Fill in FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY, FIREBASE_DATABASE_ID
 ```
 
 ### 3. Firebase credentials
@@ -88,20 +156,26 @@ npm run dev
 
 ### 5. Seed Firestore
 
-Run once to populate Firestore with the initial station data and weekly schedule:
+Populate Firestore with initial data. The script is idempotent — safe to re-run.
 
 ```bash
+# Seed everything (station config + schedule + prayers)
 npm run seed
+
+# Seed a specific target only
+npm run seed -- station    # station config only
+npm run seed -- schedule   # weekly schedule only
+npm run seed -- prayers    # sample prayers only
 ```
 
-The seed script is idempotent — safe to re-run.
+Schedule data lives in `data/schedule/*.json` (one file per day). Edit those files to update the program, then re-run `npm run seed -- schedule`.
 
 ---
 
 ## Testing
 
 ```bash
-npm test               # Run all tests (43 tests)
+npm test               # Run all tests
 npm run test:coverage  # Run with coverage report (target: 80%+)
 npm run typecheck      # TypeScript type check
 ```
@@ -113,11 +187,12 @@ npm run typecheck      # TypeScript type check
 1. Push this repo to GitHub
 2. In [Render dashboard](https://render.com): New → Web Service → connect repo
 3. Render will detect `render.yaml` automatically
-4. Set the four env vars in Render dashboard (Settings → Environment):
-   - `CORS_ORIGIN` — your Expo web domain
+4. Set the env vars in Render dashboard (Settings → Environment):
+   - `CORS_ORIGIN` — your Expo web domain (comma-separated)
    - `FIREBASE_PROJECT_ID`
    - `FIREBASE_CLIENT_EMAIL`
    - `FIREBASE_PRIVATE_KEY` — paste the full key including newlines
+   - `FIREBASE_DATABASE_ID` — Firestore database ID (e.g. `radiovoxecclesiae-nosql`)
 
 > **Cold start note**: Render free tier spins down after 15 min inactivity.
 > First request after spin-down takes ~3-5s. Consider pinging `/api/v1/health`
@@ -129,14 +204,17 @@ npm run typecheck      # TypeScript type check
 
 ```
 Request
-  └─► Express app (helmet, CORS, pino logger)
-        └─► /api/v1/app-config
-              └─► AppConfigController
-                    └─► AppConfigService
-                          └─► Promise.all([
-                                StationRepository  → Firestore stations/rve-radio
-                                ScheduleRepository → Firestore schedules/* (7 docs, getAll)
-                              ])
+  └─► Express app (helmet, CORS, rate-limit, pino logger)
+        ├─► /api/v1/app-config
+        │     └─► AppConfigController
+        │           └─► AppConfigService
+        │                 └─► Promise.all([
+        │                       StationRepository  → Firestore stations/rve-radio
+        │                       ScheduleRepository → Firestore schedules/* (7 docs)
+        │                     ])
+        └─► /api/v1/prayers
+              └─► PrayerController
+                    └─► PrayerRepository → Firestore prayers/*
 ```
 
 ### Adding Firebase Auth (future)
@@ -152,13 +230,25 @@ Request
 ```
 src/
 ├── config/          # env (Zod), Firebase Admin init
-├── middleware/       # CORS, logger, error handler, auth stub
-├── routes/v1/       # health + app-config routes
+├── middleware/      # CORS, rate-limit, logger, error handler, auth stub
+├── routes/v1/       # health, app-config, prayers routes
 ├── controllers/     # thin HTTP handlers
 ├── services/        # business logic (parallel data aggregation)
-├── repositories/    # Firestore access (station + schedule)
+├── repositories/    # Firestore access (station, schedule, prayers)
 ├── schemas/         # Zod validation schemas
 ├── types/           # TypeScript interfaces
 ├── utils/           # AppError, response envelope helpers
-└── scripts/seed.ts  # one-time data migration
+└── scripts/seed.ts  # Firestore seed script
+
+data/
+├── station.json     # Station config
+├── prayers.json     # Sample prayers for seeding
+└── schedule/        # Weekly program (one file per day, edited manually)
+    ├── lundi.json
+    ├── mardi.json
+    ├── mercredi.json
+    ├── jeudi.json
+    ├── vendredi.json
+    ├── samedi.json
+    └── dimanche.json
 ```

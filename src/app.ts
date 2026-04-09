@@ -9,6 +9,10 @@ import v1Router from "./routes/v1/index.js";
 export function createApp(): express.Application {
   const app = express();
 
+  // Trust Render's reverse proxy so req.ip reflects the real client IP
+  // (required for rate limiting to work per-client rather than per-proxy)
+  app.set("trust proxy", 1);
+
   // Security headers
   app.use(helmet());
 

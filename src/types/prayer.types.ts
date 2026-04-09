@@ -4,7 +4,7 @@ export interface Prayer {
   author: string;
   isAnonymous: boolean;
   createdAt: string; // ISO 8601
-  status: "approved";
+  status: "approved" | "pending" | "rejected";
 }
 
 export interface PrayerListResult {

@@ -1,0 +1,293 @@
+{
+  "day": "dimanche",
+  "schedule": [
+    {
+      "time": "05:30",
+      "endTime": "05:35",
+      "code": "RVE0",
+      "title": "Indicatif RVE",
+      "theme": null,
+      "icon": "radio-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:35",
+      "endTime": "05:45",
+      "code": "RVE1",
+      "title": "Ma prière du matin",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:45",
+      "endTime": "05:53",
+      "code": "RVE2",
+      "title": "Les saints nous parlent",
+      "theme": null,
+      "icon": "star-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:53",
+      "endTime": "05:55",
+      "code": "RVE4",
+      "title": "La minute de l'EDAP",
+      "theme": null,
+      "icon": "hand-left-outline",
+      "artwork": null
+    },
+    {
+      "time": "05:55",
+      "endTime": "06:15",
+      "code": "RVE3",
+      "title": "Les Laudes",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "06:15",
+      "endTime": "06:30",
+      "code": null,
+      "title": "Musiques",
+      "theme": null,
+      "icon": "musical-notes-outline",
+      "artwork": null
+    },
+    {
+      "time": "06:30",
+      "endTime": "08:00",
+      "code": null,
+      "title": "Messe",
+      "theme": "Direct",
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:00",
+      "endTime": "08:25",
+      "code": "RVE",
+      "title": "Méditation du jour du Seigneur",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:25",
+      "endTime": "08:30",
+      "code": "RVE42",
+      "title": "Parole de Dieu",
+      "theme": null,
+      "icon": "people-outline",
+      "artwork": null
+    },
+    {
+      "time": "08:30",
+      "endTime": "10:15",
+      "code": null,
+      "title": "Messe",
+      "theme": "Direct",
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:15",
+      "endTime": "10:30",
+      "code": null,
+      "title": "A l'école de la prière",
+      "theme": null,
+      "icon": "heart-outline",
+      "artwork": null
+    },
+    {
+      "time": "10:30",
+      "endTime": "12:00",
+      "code": null,
+      "title": "Messe en anglais",
+      "theme": "Direct",
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:00",
+      "endTime": "12:30",
+      "code": "RVE45",
+      "title": "Lecture des textes en Ghomala",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:30",
+      "endTime": "13:00",
+      "code": "RVE45",
+      "title": "Lecture des textes Gyembon",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "12:35",
+      "endTime": "12:55",
+      "code": "RVE45",
+      "title": "Lecture des textes Gyembon",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "13:00",
+      "endTime": "13:30",
+      "code": "RVE45",
+      "title": "Lecture des textes en Baleng",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "13:30",
+      "endTime": "14:00",
+      "code": "RVE45",
+      "title": "Lecture des textes en Guemba",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "14:00",
+      "endTime": "14:30",
+      "code": "RVE45",
+      "title": "Lecture des textes en Bafoussam",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "14:30",
+      "endTime": "15:00",
+      "code": "RVE45",
+      "title": "Lecture des textes en Yemba",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "15:00",
+      "endTime": "15:30",
+      "code": "RVE19",
+      "title": "Famille en marche",
+      "theme": null,
+      "icon": "home-outline",
+      "artwork": null
+    },
+    {
+      "time": "15:30",
+      "endTime": "15:58",
+      "code": "RVE16",
+      "title": "Le chapelet",
+      "theme": "Mystères glorieux",
+      "icon": "flower-outline",
+      "artwork": null
+    },
+    {
+      "time": "15:58",
+      "endTime": "16:00",
+      "code": "RVE30",
+      "title": "La minute de la famille",
+      "theme": null,
+      "icon": "home-outline",
+      "artwork": null
+    },
+    {
+      "time": "16:00",
+      "endTime": "17:00",
+      "code": null,
+      "title": "Les grands moments de la musiques sacrées",
+      "theme": "Télécharger",
+      "icon": "musical-notes-outline",
+      "artwork": null
+    },
+    {
+      "time": "17:00",
+      "endTime": "17:30",
+      "code": "RVE45",
+      "title": "Lecture des textes en Anglais",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "17:30",
+      "endTime": "19:00",
+      "code": null,
+      "title": "Messe dominicale",
+      "theme": "Direct",
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "19:00",
+      "endTime": "20:30",
+      "code": "RVE",
+      "title": "Catho Hit Parade",
+      "theme": "Direct",
+      "icon": "musical-notes-outline",
+      "artwork": null
+    },
+    {
+      "time": "20:30",
+      "endTime": "21:00",
+      "code": "RVE18",
+      "title": "En marche vers dimanche (intégrale)",
+      "theme": "Télécharger",
+      "icon": "calendar-outline",
+      "artwork": null
+    },
+    {
+      "time": "21:00",
+      "endTime": "21:30",
+      "code": "RVE",
+      "title": "Liturgie dominicale",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "21:30",
+      "endTime": "22:00",
+      "code": null,
+      "title": "RVE_ Enseignements de l'Eglise",
+      "theme": null,
+      "icon": "book-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:00",
+      "endTime": "22:50",
+      "code": null,
+      "title": "Dimanche grégorien",
+      "theme": "Télécharger",
+      "icon": "musical-notes-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:50",
+      "endTime": "22:58",
+      "code": "RVE72",
+      "title": "Complies",
+      "theme": null,
+      "icon": "moon-outline",
+      "artwork": null
+    },
+    {
+      "time": "22:58",
+      "endTime": "23:00",
+      "code": "RVE0",
+      "title": "Indicatif de station -FIN de programme",
+      "theme": null,
+      "icon": "radio-outline",
+      "artwork": null
+    }
+  ]
+}

@@ -9,6 +9,7 @@ export const scheduleItemSchema = z.object({
   title: z.string().min(1),
   icon: z.string().min(1),
   theme: z.string().nullable(),
+  artwork: z.string().url().nullable().default(null),
 });
 
 export const dayScheduleSchema = z.object({

@@ -31,9 +31,9 @@ function matchesPattern(origin: string, pattern: string): boolean {
   // Exact match
   if (!pattern.includes("*")) return origin === pattern;
 
-  // Wildcard pattern: convert "https://*.example.com" → regex
-  // Only support leading "*." wildcard (one subdomain level).
-  // Build regex by splitting on the wildcard, escaping each half, then joining.
+  // Wildcard pattern: convert "https://*.example.com" → regex.
+  // Only a single "*" is supported (one subdomain level, e.g. "https://*.example.com").
+  // Multiple wildcards are not supported — they collapse into one and may match unexpectedly.
   const [prefix, ...rest] = pattern.split("*");
   const suffix = rest.join("*"); // rejoin in case of multiple * (treated as one)
   const escapedPrefix = prefix!.replace(/[.+?^${}()|[\]\\]/g, "\\$&");
