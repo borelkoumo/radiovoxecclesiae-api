@@ -48,5 +48,5 @@
     "text": "\"Chacun doit donner comme il a décidé dans son cœur, sans regret et sans contrainte.\"",
     "reference": "2 Corinthiens 9:7"
   },
-  "donationHeroImageUrl": "{{API_BASE_URL}}/images/support-radio.jpeg"
+  "donationHeroImageUrl": "https://radiovoxecclesiae-api.onrender.com/images/support-radio.jpeg"
 }
