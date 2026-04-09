@@ -39,6 +39,10 @@ const mockStation = {
     appStore: "https://apps.apple.com",
   },
   missions: [{ icon: "sparkles-outline", title: "Évangélisation", desc: "Diffusion." }],
+  paymentUrls: { mtn: "tel:*126#", orange: "tel:#150#" },
+  donationText: "Votre générosité permet à l'Évangile de résonner.",
+  biblicalQuote: { text: "\"Chacun doit donner...\"", reference: "2 Corinthiens 9:7" },
+  donationHeroImageUrl: null,
 };
 
 const mockSchedule = {
@@ -46,7 +50,7 @@ const mockSchedule = {
     day: "lundi",
     dayIndex: 1,
     items: [
-      { time: "05:30", endTime: "05:35", code: "RVE0", title: "Indicatif RVE", icon: "radio-outline", theme: null },
+      { time: "05:30", endTime: "05:35", code: "RVE0", title: "Indicatif RVE", icon: "radio-outline", theme: null, artwork: null },
     ],
   },
 };

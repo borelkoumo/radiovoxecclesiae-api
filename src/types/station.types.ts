@@ -25,6 +25,16 @@ export interface StationMission {
   desc: string;
 }
 
+export interface PaymentUrls {
+  mtn: string;
+  orange: string;
+}
+
+export interface BiblicalQuote {
+  text: string;
+  reference: string;
+}
+
 export interface StationConfig {
   id: string;
   name: string;
@@ -41,4 +51,8 @@ export interface StationConfig {
   contacts: StationContacts;
   storeLinks: StoreLinks;
   missions: StationMission[];
+  paymentUrls: PaymentUrls;
+  donationText: string;
+  biblicalQuote: BiblicalQuote;
+  donationHeroImageUrl: string | null;
 }

@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet";
+import { join } from "node:path";
 import { corsMiddleware } from "./middleware/cors.js";
 import { requestLogger } from "./middleware/request-logger.js";
 import { errorHandler } from "./middleware/error-handler.js";
@@ -24,6 +25,9 @@ export function createApp(): express.Application {
 
   // Body parsing
   app.use(express.json());
+
+  // Static files — serve public/ folder at /images
+  app.use("/images", express.static(join(__dirname, "../public")));
 
   // API routes
   app.use("/api/v1", v1Router);

@@ -27,6 +27,16 @@ export const stationMissionSchema = z.object({
   desc: z.string().min(1),
 });
 
+export const paymentUrlsSchema = z.object({
+  mtn: z.string().min(1),
+  orange: z.string().min(1),
+});
+
+export const biblicalQuoteSchema = z.object({
+  text: z.string().min(1),
+  reference: z.string().min(1),
+});
+
 export const stationConfigSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
@@ -43,6 +53,10 @@ export const stationConfigSchema = z.object({
   contacts: stationContactsSchema,
   storeLinks: storeLinksSchema,
   missions: z.array(stationMissionSchema).min(1),
+  paymentUrls: paymentUrlsSchema,
+  donationText: z.string().min(1),
+  biblicalQuote: biblicalQuoteSchema,
+  donationHeroImageUrl: z.string().url().nullable().default(null),
 });
 
 export type StationConfigInput = z.input<typeof stationConfigSchema>;

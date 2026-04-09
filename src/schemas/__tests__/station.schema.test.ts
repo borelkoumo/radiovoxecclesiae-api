@@ -29,6 +29,10 @@ const validStation = {
     appStore: "https://apps.apple.com",
   },
   missions: [{ icon: "sparkles-outline", title: "Évangélisation", desc: "Diffusion quotidienne." }],
+  paymentUrls: { mtn: "tel:*126#", orange: "tel:#150#" },
+  donationText: "Votre générosité permet à l'Évangile de résonner.",
+  biblicalQuote: { text: "\"Chacun doit donner...\"", reference: "2 Corinthiens 9:7" },
+  donationHeroImageUrl: null,
 };
 
 describe("stationFrequencySchema", () => {
@@ -72,6 +76,36 @@ describe("stationConfigSchema", () => {
 
   it("rejects empty missions array", () => {
     const result = stationConfigSchema.safeParse({ ...validStation, missions: [] });
+    expect(result.success).toBe(false);
+  });
+
+  it("accepts donationHeroImageUrl as null", () => {
+    const result = stationConfigSchema.safeParse({ ...validStation, donationHeroImageUrl: null });
+    expect(result.success).toBe(true);
+  });
+
+  it("accepts donationHeroImageUrl as a valid URL", () => {
+    const result = stationConfigSchema.safeParse({ ...validStation, donationHeroImageUrl: "https://cdn.example.com/hero.jpg" });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects donationHeroImageUrl as an invalid URL string", () => {
+    const result = stationConfigSchema.safeParse({ ...validStation, donationHeroImageUrl: "not-a-url" });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects missing paymentUrls.mtn", () => {
+    const result = stationConfigSchema.safeParse({ ...validStation, paymentUrls: { orange: "tel:#150#" } });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects empty donationText", () => {
+    const result = stationConfigSchema.safeParse({ ...validStation, donationText: "" });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects biblicalQuote with missing reference", () => {
+    const result = stationConfigSchema.safeParse({ ...validStation, biblicalQuote: { text: "..." } });
     expect(result.success).toBe(false);
   });
 });

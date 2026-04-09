@@ -38,5 +38,15 @@
       "title": "Éducation",
       "desc": "Programmes de formation civique et sanitaire."
     }
-  ]
+  ],
+  "paymentUrls": {
+    "mtn": "tel:*126#",
+    "orange": "tel:#150#"
+  },
+  "donationText": "Votre générosité permet à l'Évangile de résonner au cœur du Cameroun, favorisant l'éducation, le développement social et la paix.",
+  "biblicalQuote": {
+    "text": "\"Chacun doit donner comme il a décidé dans son cœur, sans regret et sans contrainte.\"",
+    "reference": "2 Corinthiens 9:7"
+  },
+  "donationHeroImageUrl": "{{API_BASE_URL}}/images/support-radio.jpeg"
 }

@@ -14,6 +14,7 @@ REST API backend for the [RadioVox Ecclesiae](https://radiovoxecclesiae.kodekonn
 | `GET` | `/api/v1/app-config` | Station config + full weekly schedule (single request) |
 | `GET` | `/api/v1/prayers` | List approved prayers (cursor pagination) |
 | `POST` | `/api/v1/prayers` | Submit a new prayer |
+| `GET` | `/images/*` | Static image files served from `public/` |
 
 ### Response envelope
 
@@ -193,6 +194,7 @@ npm run typecheck      # TypeScript type check
    - `FIREBASE_CLIENT_EMAIL`
    - `FIREBASE_PRIVATE_KEY` — paste the full key including newlines
    - `FIREBASE_DATABASE_ID` — Firestore database ID (e.g. `radiovoxecclesiae-nosql`)
+   - `API_BASE_URL` — public URL of this service (e.g. `https://radiovoxecclesiae-api.onrender.com`), used to build absolute URLs for static assets in seed data
 
 > **Cold start note**: Render free tier spins down after 15 min inactivity.
 > First request after spin-down takes ~3-5s. Consider pinging `/api/v1/health`
@@ -205,6 +207,7 @@ npm run typecheck      # TypeScript type check
 ```
 Request
   └─► Express app (helmet, CORS, rate-limit, pino logger)
+        ├─► /images/*          → static files from public/
         ├─► /api/v1/app-config
         │     └─► AppConfigController
         │           └─► AppConfigService
@@ -241,7 +244,7 @@ src/
 └── scripts/seed.ts  # Firestore seed script
 
 data/
-├── station.json     # Station config
+├── station.json     # Station config (supports {{API_BASE_URL}} placeholder)
 ├── prayers.json     # Sample prayers for seeding
 └── schedule/        # Weekly program (one file per day, edited manually)
     ├── lundi.json
@@ -251,4 +254,8 @@ data/
     ├── vendredi.json
     ├── samedi.json
     └── dimanche.json
+
+public/              # Static files served at /images/*
+└── images/
+    └── *.jpeg/png   # Place image assets here
 ```

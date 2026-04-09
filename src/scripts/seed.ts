@@ -33,7 +33,9 @@ const db = getFirestore(admin.app(), env.FIREBASE_DATABASE_ID);
 const DATA_DIR = resolve(__dirname, "../../data");
 
 function loadJson<T>(file: string): T {
-  return JSON.parse(readFileSync(resolve(DATA_DIR, file), "utf-8")) as T;
+  const raw = readFileSync(resolve(DATA_DIR, file), "utf-8")
+    .replace(/\{\{API_BASE_URL\}\}/g, env.API_BASE_URL);
+  return JSON.parse(raw) as T;
 }
 
 function randomTimestampInLastDays(maxDaysAgo: number): admin.firestore.Timestamp {

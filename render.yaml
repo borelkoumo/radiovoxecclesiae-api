@@ -24,3 +24,5 @@ services:
         sync: false
       - key: FIREBASE_DATABASE_ID
         sync: false
+      - key: API_BASE_URL
+        value: https://radiovoxecclesiae-api.onrender.com
