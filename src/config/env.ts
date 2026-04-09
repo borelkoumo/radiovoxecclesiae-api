@@ -15,8 +15,10 @@ const envSchema = z.object({
   FIREBASE_PRIVATE_KEY: z.string().min(1),
   // Named database ID — use "(default)" for the default Firestore database
   FIREBASE_DATABASE_ID: z.string().min(1).default("(default)"),
-  // Public base URL of this API — used to build absolute URLs for static assets
-  API_BASE_URL: z.string().url().default("http://localhost:3000"),
+  // Public base URL — priority: API_BASE_URL > RENDER_EXTERNAL_URL > localhost fallback
+  API_BASE_URL: z.string().url().default(
+    process.env["API_BASE_URL"] ?? process.env["RENDER_EXTERNAL_URL"] ?? "http://localhost:3000"
+  ),
 });
 
 function parseEnv() {
